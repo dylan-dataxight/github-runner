@@ -1,0 +1,24 @@
+name: Self-Hosted Runner Test
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  test-runner:
+    runs-on: ubuntu-latest  # Use your local machine as runner
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Print system info
+        run: uname -a
+
+      - name: List files
+        run: ls -lah
+
+      - name: Print environment variables
+        run: env
